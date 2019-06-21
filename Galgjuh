@@ -1,1 +1,31 @@
-print("Hallo, welkom bij galgje!")
+import random
+import time
+
+def start():
+  print("Hallo, welkom bij galgje\n")
+  time.sleep(1)
+  spelen = input("Wil je spelen?") 
+  if spelen == "ja":
+
+    print("Oke, dan gaan we beginnen") 
+    print("We spelen galgje, je hebt 5 levens en je kan elke keer 1 letter raden.")
+    print("Als deze letter goed is zal deze verschijnen en als deze fout is gaat er een leven af")    
+  begrepen = input("Snap je dit?")
+  if begrepen == "ja":
+    print("Mooi, we gaan beginnen")
+
+    print("-" * 10)
+start()
+
+wordlist = ["informatica", "informatiekunde", "spelletje", "aardigheidje" , "scholier", "fotografie", "waardebepaling", "specialiteit", "verzekering", "universiteit", "heesterperk"]
+
+def aantal_letters():
+  woord = random.choice(wordlist)
+  woordlengte = len(woord)
+  time.sleep(1)
+  print("We gaan galgje spelen")
+  print("Het woord heeft " +  str(woordlengte) + " letters")
+  time.sleep(1)
+  print("Je hebt 5 levens")
+
+aantal_letters()
