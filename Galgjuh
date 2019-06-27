@@ -1,31 +1,50 @@
 import random
 import time
 
-def start():
-  print("Hallo, welkom bij galgje\n")
-  time.sleep(1)
-  spelen = input("Wil je spelen?") 
-  if spelen == "ja":
 
-    print("Oke, dan gaan we beginnen") 
-    print("We spelen galgje, je hebt 5 levens en je kan elke keer 1 letter raden.")
-    print("Als deze letter goed is zal deze verschijnen en als deze fout is gaat er een leven af")    
-  begrepen = input("Snap je dit?")
-  if begrepen == "ja":
-    print("Mooi, we gaan beginnen")
-
-    print("-" * 10)
+  
+def start(): #functie
+    print("Hallo, welkom bij galgje\n") 
+    time.sleep(1)
+    spelen = input("Wil je spelen?\n") 
+    if spelen == "Ja" or "ja":
+      print("Oke, dan gaan we beginnen.\n") 
+      print("We spelen galgje, je hebt 5 beurten en je kan elke keer 1 letter raden.")
+      print("Als deze letter goed is zal deze verschijnen en als deze fout is gaat er een beurt af\n")  #commentaar in het spel
+      begrepen = input("Snap je dit?\n")
+    if begrepen == "ja" or "Ja": #input van de gebruiker
+       print("Mooi, we gaan beginnen")
+       print("-" * 50)
 start()
+    
+wordlist = ["informatica", "informatiekunde", "spelletje", "aardigheidje" , "scholier", "fotografie", "waardebepaling", "specialiteit", "verzekering", "universiteit", "heesterperk"] #list
 
-wordlist = ["informatica", "informatiekunde", "spelletje", "aardigheidje" , "scholier", "fotografie", "waardebepaling", "specialiteit", "verzekering", "universiteit", "heesterperk"]
 
-def aantal_letters():
-  woord = random.choice(wordlist)
-  woordlengte = len(woord)
+galgje_woord = random.choice(wordlist) #string
+
+def spel():
+  woordlengte = len(galgje_woord)
   time.sleep(1)
   print("We gaan galgje spelen")
   print("Het woord heeft " +  str(woordlengte) + " letters")
   time.sleep(1)
-  print("Je hebt 5 levens")
+  print("Je hebt 5 beurten")
 
-aantal_letters()
+beurten = 5
+geraden_letters = ""
+
+spel()
+
+
+while beurten > 0: #while-loop
+  beurt = 0 
+  for letter in galgje_woord :
+    if letter in geraden_letters:
+      print (letter, end="")
+    else:
+      print (" _ ", end="")
+      beurt += 1
+  if beurt == 0:
+    print ()
+    print ("Gefeliciteerd, je hebt gewonnen")
+    break
