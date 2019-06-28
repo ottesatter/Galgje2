@@ -67,8 +67,9 @@ while beurten > 0: #while-loop
       print (" _ ", end="")
       beurt += 1
   if beurt == 0:
+    
     print("Gefeliciteerd, je hebt gewonnen")
-  
+    break
   print () 
   print () 
   raden = input("Raad een letter:") 
@@ -78,13 +79,13 @@ while beurten > 0: #while-loop
       print("Raad maximaal maar 1 letter") 
       while tel1 > 0: 
         print("Je kan maximaal maar 1 letter tegelijk raden") 
-      tel1 -= 1 
+        tel1 -= 1 
   geraden_letters += raden 
   if raden not in galgje_woord : 
       beurten -= 1 
       print ("Helaas, dat is fout") 
       print("Letters geraden tot nu toe:", geraden_letters) 
-      print ("Je hebt nog", + beurten, "keer om te raden") 
+      print ("Je hebt nog", + beurten, "keer om te raden\n") 
   if beurten == 0: 
     print ("Helaas, je hebt het woord niet geraden. Het woord was " + galgje_woord )
  
@@ -93,4 +94,3 @@ while beurten > 0: #while-loop
       print ("Letters geraden tot nu toe:  ", geraden_letters) #concatenation
       print ("Je hebt nog", + beurten, "keer om te raden" )
 
-spel()
