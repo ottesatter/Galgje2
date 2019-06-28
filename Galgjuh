@@ -44,21 +44,20 @@ wordlist = ["informatica", "informatiekunde", "spelletje", "aardigheidje" , "sch
 
 
 galgje_woord = random.choice(wordlist) #string
-value = 1
-def spel():
-  woordlengte = len(galgje_woord) 
-  time.sleep(1) 
-  print("We gaan galgje spelen") 
-  print("Het woord heeft " +  str(woordlengte) + " letters") 
-  time.sleep(1) 
-  print("Je hebt 5 beurten") 
+
+
+woordlengte = len(galgje_woord) 
+time.sleep(1) 
+print("We gaan galgje spelen") 
+print("Het woord heeft " +  str(woordlengte) + " letters") 
+time.sleep(1) 
+print("Je hebt 5 beurten") 
 
 beurten = 5
 geraden_letters = ""
 
 
-spel()
-value = 1
+
 while beurten > 0: #while-loop
   beurt = 0 
   for letter in galgje_woord :
@@ -68,33 +67,30 @@ while beurten > 0: #while-loop
       print (" _ ", end="")
       beurt += 1
   if beurt == 0:
-    print()
-    print ("Gefeliciteerd, je hebt gewonnen")
+    print("Gefeliciteerd, je hebt gewonnen")
   
   print () 
   print () 
   raden = input("Raad een letter:") 
   tel1 = 0
   if len(raden) > 1: 
-    tel1 += 1 
-    print("Raad maximaal maar 1 letter") 
-    while tel1 > 0: 
-      print("Je kan maximaal maar 1 letter tegelijk raden") 
+      tel1 += 1 
+      print("Raad maximaal maar 1 letter") 
+      while tel1 > 0: 
+        print("Je kan maximaal maar 1 letter tegelijk raden") 
       tel1 -= 1 
-  raden = "".join(sorted(set(raden.lower().replace(" ", "")))) 
   geraden_letters += raden 
   if raden not in galgje_woord : 
-    beurten -= 1 
-    print ("Helaas, dat is fout") 
-    print("Letters geraden tot nu toe:",   geraden_letters) 
-    print ("Je hebt nog", + beurten, "keer om te raden") 
-    if beurten == 0: 
-      print ("Helaas, je hebt het woord niet geraden. Het woord was " + galgje_woord )
+      beurten -= 1 
+      print ("Helaas, dat is fout") 
+      print("Letters geraden tot nu toe:", geraden_letters) 
+      print ("Je hebt nog", + beurten, "keer om te raden") 
+  if beurten == 0: 
+    print ("Helaas, je hebt het woord niet geraden. Het woord was " + galgje_woord )
  
-   
   if raden in galgje_woord :
-    print ("Goedzo")
-    print ("Letters geraden tot nu toe:  " + geraden_letters) #concatenation
-    print ("Je hebt nog", + beurten, "keer om te raden" )
+      print ("Goedzo")
+      print ("Letters geraden tot nu toe:  ", geraden_letters) #concatenation
+      print ("Je hebt nog", + beurten, "keer om te raden" )
 
- 
+spel()
